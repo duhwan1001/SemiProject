@@ -7,11 +7,12 @@
 	<properties resource="kr/or/ddit/properties/db.properties"/>
 	
 	<typeAliases>
-		<typeAlias type="java.lang.String" alias="str"/>
-		<typeAlias type="java.lang.Integer" alias="int"/>
+		<typeAlias type="java.lang.String" alias="str" />
+		<typeAlias type="java.lang.Integer" alias="int" />
 		
-		<!-- typeAlias 영역 -->
-
+		<typeAlias type="kr.or.ddit.dto.MenuVO" alias="menu" />
+		<typeAlias type="kr.or.ddit.dto.MemberVO" alias="member" />
+		<typeAlias type="kr.or.ddit.dto.NoticeVO" alias="notice" />
 	</typeAliases>
 	
 	
