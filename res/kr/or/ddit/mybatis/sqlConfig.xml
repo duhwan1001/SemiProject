@@ -13,6 +13,7 @@
 		<typeAlias type="kr.or.ddit.dto.MenuVO" alias="menu" />
 		<typeAlias type="kr.or.ddit.dto.MemberVO" alias="member" />
 		<typeAlias type="kr.or.ddit.dto.NoticeVO" alias="notice" />
+			<typeAlias type="kr.or.ddit.dto.OrderVO" alias="order" />
 	</typeAliases>
 	
 	
@@ -36,5 +37,6 @@
 		<mapper resource="kr/or/ddit/mybatis/mappers/Menu-Mapper.xml"/>
 		<mapper resource="kr/or/ddit/mybatis/mappers/Member-Mapper.xml"/>
 		<mapper resource="kr/or/ddit/mybatis/mappers/Notice-Mapper.xml"/>
+		<mapper resource="kr/or/ddit/mybatis/mappers/Order-Mapper.xml"/>
 	</mappers>
 </configuration>
