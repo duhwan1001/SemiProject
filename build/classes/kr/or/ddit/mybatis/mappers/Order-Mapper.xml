@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Order-Mapper">
+
+	<sql id="search">
+		<if test="searchType == 's'.toString()">
+			and ORDER_STATUS like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'd'.toString()">
+			and BUY_DATE like '%'||#{keyword}||'%'
+		</if>
+	
+	</sql>
+
+	<select id="selectSearchOrderListCount" resultType="int">
+		SELECT
+		COUNT(*)
+		FROM ORDER
+		WHERE USER_ID = #{userId}
+		<include refid="search" />
+		ORDER BY ORDER_ID DESC
+	</select>
+
+	<select id="selectSearchOrderList" resultType="order">
+		SELECT *
+		FROM ORDER
+		WHERE USER_ID = #{userId}
+		<include refid="search" />
+		ORDER BY ORDER_ID DESC
+	</select>
+
+
+
+
+
+
+
+
+<!-- 	<select id="selectMemberById" parameterType="str" -->
+<!-- 		resultType="order"> -->
+<!-- 		SELECT * -->
+<!-- 		FROM ORDER -->
+<!-- 		WHERE ORDER_ID = #{orderId} -->
+<!-- 	</select> -->
+
+<!-- 	<select id="selectMemberList" resultType="order"> -->
+<!-- 		select -->
+<!-- 		* -->
+<!-- 		from ORDER -->
+<!-- 	</select> -->
+
+<!-- 	<update id="insertMember" parameterType="order"> -->
+<!-- 		insert into -->
+<!-- 		ORDER(id, pwd, email, phone, picture, name, authority) -->
+<!-- 		values(#{id}, #{pwd}, -->
+<!-- 		#{email}, #{phone}, #{picture}, #{name}, #{authority}) -->
+<!-- 	</update> -->
+
+<!-- 	<update id="updateMember" parameterType="order"> -->
+<!-- 		update ORDER -->
+<!-- 		set -->
+<!-- 		pwd=#{pwd}, email=#{email}, phone=#{phone}, -->
+<!-- 		name=#{name}, picture=#{picture} -->
+
+<!-- 		<if test="authority != null"> -->
+<!-- 			, authority=#{authority} -->
+<!-- 		</if> -->
+<!-- 		where ORDER_ID=#{orderId} -->
+<!-- 	</update> -->
+
+<!-- 	<update id="disabledMember"> -->
+<!-- 		update ORDER -->
+<!-- 		set enabled=0 -->
+<!-- 		where ORDER_ID=#{orderId} -->
+<!-- 	</update> -->
+
+<!-- 	<update id="enabledMember"> -->
+<!-- 		update ORDER -->
+<!-- 		set enabled=1 -->
+<!-- 		where ORDER_ID=#{orderId} -->
+<!-- 	</update> -->
+
+</mapper>
